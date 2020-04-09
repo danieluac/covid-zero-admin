@@ -1,0 +1,82 @@
+ 
+  <!-- Modal -->
+  <div class="modal fade show" id="cadProvincia" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-blue-dark ">
+          <h4>Provincias</h4>
+        </div>
+        <form [formGroup]="ProvinciaForm" (ngSubmit) = "onSubmit()">
+            <div class="modal-body">
+            
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="provincia">Provincia</label>
+                            <input type="text" formControlName = "provincia" class="form-control " id="provincia" placeholder="nome da provincia" required>
+                        </div>
+                   
+                      <div class="col-md-4">
+                          <label for="latitude">Latitude</label>
+                          <input type="text" formControlName = "latitude" class="form-control " id="latitude" placeholder="latitude" required>
+                      </div>
+                    <div class="col-md-4">
+                        <label for="longitude">Longitude</label>
+                        <input type="text" formControlName = "longitude" class="form-control " id="longitude" placeholder="longitude" required>
+                    </div>
+                </div>                
+            </div>
+            <div class="modal-footer bg-blue-dark ">
+            <button type="button" class="btn text-white" data-dismiss="close" (click)= "closeModal()">Fechar</button>
+            <button type="submit" [disabled] ='!ProvinciaForm.valid' class="btn btn-outline-warning text-white">Cadastrar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade " id="listProvincia" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document" style="min-width: 450px;" >
+      <div class="modal-content " >
+        <div class="modal-header bg-blue-dark ">
+          <h4>Lista de provincias</h4>
+        </div>
+        <div class="modal-body" >
+                    
+              <input class="form-control mb-1" matInput (keyup)="applyFilter($event)" placeholder="Filtrar">     
+              <div class=" example-container mat-elevation-z1">
+                <table mat-table [dataSource]="dataSource" matSort style="min-width: 100%;">
+                 
+                  <ng-container matColumnDef="provincia">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> provincia </th>
+                    <td mat-cell *matCellDef="let row"> {{row.provincia}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="latitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> latitude </th>
+                    <td mat-cell *matCellDef="let row"> {{row.latitude}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="longitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> longitude </th>
+                    <td mat-cell *matCellDef="let row"> {{row.longitude}} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="opcoes">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ação </th>
+                    <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                    <button class="btn btn-primary mr-3" (click) ='onViewData(row.provincia)'>Ver dados</button>
+                      <!-- <button class="btn btn-primary" (click)="onUpdate({latitude:row.latitude,longitude:row.longitude,provincia : row.provincia})">Editar</button> -->
+                    </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+              </div>
+        </div>
+          <div class="modal-footer bg-blue-dark ">
+            <button type="button" class="btn text-white" data-dismiss="close" (click)= "modalComp.closeOneModal('listProvincia')">Fechar</button>
+          </div>
+      </div>
+    </div>
+  </div>

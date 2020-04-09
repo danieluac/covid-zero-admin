@@ -1,0 +1,25 @@
+
+*{
+    border-radius: 0px !important;
+}
+
+.navbar {
+    box-shadow: #2f4050 0px 2px 20px;
+    background-color: #2f4050 !important;
+   
+    margin-bottom: 3%;
+}
+.navbar-toggler-icon {
+    color: white !important;
+}
+.navbar a {
+    color: white !important;
+}
+
+nav {
+    margin-top: 0px;
+}
+.nav .active, .nav .active:hover {
+    border-radius: 0px !important;
+}
+

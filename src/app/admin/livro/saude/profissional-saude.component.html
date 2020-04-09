@@ -1,0 +1,90 @@
+ 
+  <!-- Modal -->
+  <div class="modal fade show" id="cadCategoria" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-blue-dark ">
+          <h4>Cadastro do Profissionail da saúde</h4>
+        </div>
+        <form [formGroup]="categoriaForm" (ngSubmit) = "onSubmit()">
+            <div class="modal-body">
+            
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="nome">Nome do profissional</label>
+                            <input type="text" formControlName = "nome" class="form-control " id="nome" placeholder="nome do profissional" required>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label for="profissao">Profissão</label>
+                          <input type="text" formControlName = "profissao" class="form-control " id="profissao" placeholder="profissão" required>
+                        </div>
+                        <div class="col-md-4">
+                          <label for="telefone">telefone</label>
+                          <input type="text" formControlName = "telefone" class="form-control " id="telefone" placeholder="telefone" required>
+                        </div>
+                      <div class="col-md-4">
+                        <label for="numeroOrdem">numeroOrdem</label>
+                        <input type="text" formControlName = "numOrdem" class="form-control " id="numeroOrdem" placeholder="número de ordem" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="palavrapasse">palavra-passe</label>
+                      <input type="text" formControlName = "senha" class="form-control " id="palavrapasse" placeholder="palavra-passe" required>
+                  </div>
+                </div>                
+            </div>
+            <div class="modal-footer bg-blue-dark ">
+            <button type="button" class="btn text-white" data-dismiss="close" (click)= "closeModal()">Fechar</button>
+            <button type="submit" [disabled] ='!categoriaForm.valid' class="btn btn-outline-warning text-white">Cadastrar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade " id="listCategoria" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document" style="min-width: 450px;" >
+      <div class="modal-content " >
+        <div class="modal-header bg-blue-dark ">
+          <h4>Lista dos Profissionais da saúde</h4>
+        </div>
+        <div class="modal-body" >
+                    
+              <input class="form-control mb-1" matInput (keyup)="applyFilter($event)" placeholder="Filtrar">     
+              <div class=" example-container mat-elevation-z1">
+                <table mat-table [dataSource]="dataSource" matSort style="min-width: 100%;">
+                 
+                  <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Agente da saúde </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Nome}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="profissao">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Profissão </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Profissao}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="telefone">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </th>
+                    <td mat-cell *matCellDef="let row"> {{row.Telefone}} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="opcoes">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ação </th>
+                    <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                    <button class="btn btn-danger mr-3" (click) ='onDelete(row.id)'>Eliminar</button>
+                      <button class="btn btn-primary" (click)="onUpdate({numOrdem: null,senha: null,profissao : row.Profissao, telefone : row.Telefone, nome : row.Nome, id : row.id})">Editar</button>
+                    </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+              </div>
+        </div>
+          <div class="modal-footer bg-blue-dark ">
+            <button type="button" class="btn text-white" data-dismiss="close" (click)= "modalComp.closeOneModal('listCategoria')">Fechar</button>
+          </div>
+      </div>
+    </div>
+  </div>

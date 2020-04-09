@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // API_ROOT_URL : 'http://localhost/stopCovid19/api/',
+  API_ROOT_URL : 'http://www.appcovid-zero.com/api/',
 };
 
 /*

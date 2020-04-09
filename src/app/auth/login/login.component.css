@@ -1,0 +1,15 @@
+.containner-fluid {
+    padding-top: 80px !important;
+    background-color: rgba(0, 0, 0,.009) !important;
+}
+.panel-form {
+    max-width: 500px;
+    height: auto;
+    /* margin: 0px auto 0px auto; */
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    /* box-shadow: #cefc60 0px 4px 4px; */
+    box-shadow: #2c96c5 0px 1px 5px;
+    background: white;
+}

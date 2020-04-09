@@ -1,0 +1,24 @@
+
+<div *ngIf="true" class="containner-fluid">
+    <div class="panel-form p-5">
+      <h3>Covid-zero Admin</h3>
+      <hr>
+      <p *ngIf='loginError' class="alert alert-danger">{{ loginError }}</p>
+      <form [formGroup]="loginForm" class="p-1" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="emailId">Email</label>
+          <input formControlName="username" type="text" class="form-control" id="emailId" placeholder=" nome de usuário">
+        </div>
+        <div class="form-group">
+          <label for="passwordId">Palavra-passe</label>
+          <input formControlName="password" type="password" class="form-control" id="passwordId" placeholder="Palavra-passe">
+        </div>
+        <button type="submit" class="btn bg-blue-dark col-md-12 " >
+          <span *ngIf='loginLoading' class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+         
+          Entrar
+        </button>
+      </form>
+    
+    </div>
+</div>

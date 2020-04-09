@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+/* background: #aaa !important; */
+background-image: url("assets/img/FundoTeste2.png") !important;
+background-size: 350px 150px;
+background-position: center;
+}
+.bg-blue-dark {
+    background: rgba(28, 28, 28,.7);
+    color: white !important;
+}
+.bg-blue-blue {
+    background: #0c729f;
+    color: white !important;
+}
+.text-white {
+    color: white !important;
+}
+
+.bg-blue-dark a {
+    color: white;
+}
+.modal-content,
+.card,select, input,button{
+    border-radius: 0px !important;
+}
+.modal-content{
+    border: 1px solid #ffc107;
+}
+.snackbar {
+    background-color: #2f4050;
+    color: white !important;
+}
+.example-container {
+    height: 300px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }

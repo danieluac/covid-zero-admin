@@ -1,0 +1,14 @@
+<nav class="bg-blue-dark ">
+  <ul class="nav nav-tabs bg-blue-dark  mb-5 justify-content-center " id="myTab" role="tablist">
+    <li class="nav-item ">
+      <a class="nav-link " [routerLink]="['/admin/page/dashboard']" routerLinkActive="router-link-active"  >Estatistica</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/admin/page/home']">Actualização de dados</a>
+    </li>
+    <li class="nav-item">
+      <a style="cursor: pointer;" class="nav-link" (click)="auth.logOut()">Sair</a>
+    </li>
+  </ul>
+</nav>
+  
